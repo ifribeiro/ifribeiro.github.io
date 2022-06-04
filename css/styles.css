@@ -11383,6 +11383,11 @@ p.lead {
   #sideNav .navbar-collapse .navbar-nav .nav-item .nav-link {
     display: block;
   }
+
+  .img-logos{
+    max-width: 10rem;
+    max-height: 10rem;
+  }
 }
 .social-icons .social-icon {
   display: inline-flex;
