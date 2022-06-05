@@ -11337,7 +11337,7 @@ p.lead {
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
-  text-transform: uppercase;
+  
 }
 #sideNav .navbar-toggler:focus {
   outline-color: #d48a6e;
@@ -11399,8 +11399,7 @@ p.lead {
   color: #fff;
   border-radius: 100%;
   font-size: 1.5rem;
-  margin-right: 1.5rem;
-}
+  margin-right: 1.5rem;}
 .social-icons .social-icon:last-child {
   margin-right: 0;
 }
@@ -11449,4 +11448,8 @@ section.resume-section .resume-section-content {
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
+}
+
+footer{
+  background-color: rgba(0, 0, 0, 0.05);
 }
