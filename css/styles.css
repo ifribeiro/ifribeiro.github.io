@@ -655,6 +655,11 @@ progress {
 @media (min-width: 992px) {
   .container-lg, .container-md, .container-sm, .container {
     max-width: 960px;
+    
+  }
+  .img-logos{
+    max-width: 10rem;
+    max-height: 10rem;
   }
 }
 @media (min-width: 1200px) {
@@ -7977,6 +7982,12 @@ textarea.form-control-lg {
 }
 
 @media (min-width: 576px) {
+
+  .img-logos{
+    max-width: 5rem;
+    max-height: 5rem;
+  }
+
   .float-sm-start {
     float: left !important;
   }
@@ -11384,9 +11395,13 @@ p.lead {
     display: block;
   }
 
-  .img-logos{
-    max-width: 10rem;
-    max-height: 10rem;
+  #pandas{
+    width: 8rem;
+    background-color: #130654;
+  }
+
+  #numpy{
+    width: 7rem;
   }
 }
 .social-icons .social-icon {
@@ -11417,6 +11432,10 @@ a#googlescholar.social-icon:hover{
 
 a#github.social-icon:hover{
   background-color: #24292F;
+}
+
+a#researchgate.social-icon:hover{
+  background-color: #00ccbb;
 }
 
 .dev-icons {
