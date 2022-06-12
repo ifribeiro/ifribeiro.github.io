@@ -11322,7 +11322,7 @@ h5,
 .h5,
 h6,
 .h6 {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 h1, .h1 {
@@ -11336,7 +11336,7 @@ p.lead {
 
 .subheading {
   font-family: "Saira Extra Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 500;
   font-size: 1.5rem;
 }
@@ -11458,6 +11458,15 @@ section.resume-section .resume-section-content {
 @media (min-width: 768px) {
   section.resume-section {
     min-height: 100vh;
+  }
+
+  #pandas{
+    width: 8rem;
+    background-color: #130654;
+  }
+
+  #numpy{
+    width: 7rem;
   }
 }
 @media (min-width: 992px) {
