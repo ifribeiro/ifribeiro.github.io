@@ -11438,6 +11438,10 @@ a#researchgate.social-icon:hover{
   background-color: #00ccbb;
 }
 
+a#orcid.social-icon:hover{
+  background-color: #A6CE39;
+}
+
 .dev-icons {
   font-size: 3rem;
 }
