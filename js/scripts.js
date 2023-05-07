@@ -6,7 +6,52 @@
 //
 // Scripts
 //
+
+
 const bibs = `
+@inproceedings{ribeiro2023evaluating,
+    title={Evaluating Weather Influence on User Participation in a Crowd-sensing Application},
+    author={Iran F Ribeiro and Calmon, Vitor F and Silva, Thiago H and Santos, Celso AS and Vinícius F.S. Mota},
+    booktitle={2023 International Conference on Computing, Networking and Communications (ICNC)},
+    pages={523--528},
+    year={2023},
+    organization={IEEE}
+  }
+
+@article{ribeiro2022geraccao,
+    title={Geração de Séries Temporais Utilizando Redes Generativas Adversárias: da Teoria à Prática},
+    author={Iran F Ribeiro and Krohling, Breno and Comarela, Giovanni and Mota, Vin{\'\i}cius FS},
+    journal={Sociedade Brasileira de Computação},
+    year={2022}
+  }
+
+@inproceedings{ribeiro2022chove,
+    title={Chove lá fora, alerta aqui dentro: Uma análise de Alertas de Problemas de Trâansito em Sensoriamentos Participativos},
+    author={Iran F Ribeiro and Vitor F Calmon and Thiago H Silva and Mota, Vinícius F.S. Mota},
+    booktitle={Anais do VI Workshop de Computação Urbana},
+    pages={182--195},
+    year={2022},
+    organization={SBC}
+  }
+
+@inproceedings{ribeiro2021abordagem,
+    title={Uma abordagem para geração de séries temporais de mobilidade urbana baseada em aprendizado profundo},
+    author={ Iran F Ribeiro and Gabriel Simoura and Heitor S Ramos,  and Giovanni Comarela, and Vinícius F.S. Mota},
+    booktitle={Anais do V Workshop de Computação Urbana},
+    pages={251--264},
+    year={2021},
+    organization={SBC}
+  }
+
+@inproceedings{ribeiro2021mobility,
+    title={Mobility and community detection based on topics of interest},
+    author={Iran Ribeiro and Lucas Castanheira and  Alberto Schaeffer-Filho and Weverton Cordeiro and Vinícius Mota},
+    booktitle={2021 IEEE 18th Annual Consumer Communications \& Networking Conference (CCNC)},
+    pages={1--6},
+    year={2021},
+    organization={IEEE}
+  }
+
 @inproceedings{sbrc,
     author = {Iran Ribeiro and Lucas Castanheira and Alberto Schaeffer-Filho and Weverton Cordeiro and Vinícius Mota},
     title = {Caracterização de Mobilidade e Detecção de Comunidades baseadas em Tópicos de Interesse},
@@ -21,21 +66,6 @@ const bibs = `
     doi = {10.5753/sbrc.2020.12312},
     url = {https://sol.sbc.org.br/index.php/sbrc/article/view/12312}
    }
-   
-
-@book{book,
-    author={Peter Babington}, 
-    title ={The title of the work},
-    publisher = {The name of the publisher},
-    year={1993},
-    volume=4,
-    series=10,
-    address ={The address},
-    edition =3,
-    month =7,
-    note={An optional note},
-    isbn={3257227892}
-}
 `
 
 function BibtexParser() {
@@ -348,9 +378,9 @@ window.addEventListener('DOMContentLoaded', event => {
     InsertPublications();
 
 
-    // Preencher lista
+    // Fill publication list
     function InsertPublications(){
-        var ul = document.getElementById("publications")
+        var ul = document.getElementById("list_publications")
         entries =  toJSON(bibs)
         entries.forEach(e => {
             var author = e.entryTags.author;
@@ -362,16 +392,13 @@ window.addEventListener('DOMContentLoaded', event => {
             list_entries.forEach(key_entrie => {
                 if (!(key_entrie === undefined)){
                     pub+=". "+key_entrie;
-                }
-                
-            });
-            
+                }                
+            });            
             pub+=".";
             li.appendChild(document.createTextNode(pub));
+            li.setAttribute('class', "mb-2")
             ul.append(li);
-        });        
-        
-       
+        });
     }
 
     function toJSON(bibtex){
@@ -382,11 +409,15 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
     function get_autores(authors){
+        /**
+         * Split authors names
+         */
+        // TODO: update when there's only 3 authors
         var lista_autores = authors.split('and');
         var author_names = ""
         if (lista_autores.length>3){
             var nome_sobrenome = lista_autores[0].trim().split(" ")
-            author_names+=nome_sobrenome.slice(-1)+", "+nome_sobrenome[0]+", et al."
+            author_names+=nome_sobrenome.slice(-1)+", "+nome_sobrenome[0]+", et al"
         }
 
         return author_names;
