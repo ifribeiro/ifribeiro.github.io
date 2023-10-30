@@ -9,6 +9,21 @@
 
 
 const bibs = `
+@inproceedings{sbrc,
+    author = {Tiago Araujo and Iran Ribeiro and Vinícius Mota},
+    title = {Covid19-Fast-Check: Uma abordagem Internet das Coisas Aplicada à Saúde para pré-triagem hospitalar do coronavírus},
+    booktitle = {Anais do XLI Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos},
+    location = {Brasília/DF},
+    year = {2023},
+    keywords = {},
+    issn = {2177-9384},
+    pages = {518--531},
+    publisher = {SBC},
+    address = {Porto Alegre, RS, Brasil},
+    doi = {10.5753/sbrc.2023.397},
+    url = {https://sol.sbc.org.br/index.php/sbrc/article/view/24562}
+}
+   
 @inproceedings{ribeiro2023evaluating,
     title={Evaluating Weather Influence on User Participation in a Crowd-sensing Application},
     author={Iran F Ribeiro and Calmon, Vitor F and Silva, Thiago H and Santos, Celso AS and Vinícius F.S. Mota},
@@ -412,15 +427,24 @@ window.addEventListener('DOMContentLoaded', event => {
         /**
          * Split authors names
          */
-        // TODO: update when there's only 3 authors
         var lista_autores = authors.split('and');
         var author_names = ""
         if (lista_autores.length>3){
             var nome_sobrenome = lista_autores[0].trim().split(" ")
             author_names+=nome_sobrenome.slice(-1)+", "+nome_sobrenome[0]+", et al"
+        } else{
+            lista_autores.forEach(author_name => {
+                author_name = author_name.trim()    
+                first_second = author_name.split(" ")
+                first_nm_initial = first_second[0][0]
+                last = first_second.slice(-1)
+                if (author_name==lista_autores.slice(-1)[0].trim()){
+                    author_names+=last + ", " + first_nm_initial;
+                }else{
+                    author_names+=last + ", " + first_nm_initial + "; ";
+                }                
+            });
         }
-
         return author_names;
     }
-
 });
