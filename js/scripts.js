@@ -9,6 +9,42 @@
 
 
 const bibs = `
+@article{Ribeiro_Comarela_Rocha_Mota_2024, 
+title={Towards a Framework to Evaluate Generative Time Series Models for Mobility Data Features}, 
+volume={15}, url={https://journals-sol.sbc.org.br/index.php/jisa/article/view/3887}, 
+DOI={10.5753/jisa.2024.3887}, 
+abstractNote={&amp;lt;p&amp;gt;Understanding human mobility has implications for several areas, such as immigration, disease control, mobile networks performance, and urban planning. However, gathering and disseminating mobility data face challenges such as data collection, handling of missing information, and privacy protection. An alternative to tackle these problems consists of modeling raw data to generate synthetic data, preserving its characteristics while maintaining its privacy. Thus, we propose MobDeep, a unified framework to compare and evaluate generative models of time series based on mobility data features, which considers statistical and deep learning-based modeling. To achieve its goal, MobDeep receives as input statistical or Generative Adversarial Network-based models (GANs) and the raw mobility data, and outputs synthetic data and the metrics comparing the synthetic with the original data. In such way, MobDeep allows evaluating synthetic datasets through qualitative and quantitative metrics. As a proof-of-concept, MobDeep implements one classical statistical model (ARIMA) and three GANs models. To demonstrate MobDeep on distinct mobility scenarios, we considered an open dataset containing information about bicycle rentals in US cities and a private dataset containing information about a Brazilian metropolis’s urban traffic. MobDeep allows observing how each model performs in specific scenarios, depending on the characteristics of the mobility data. Therefore, by using MobDeep researchers can evaluate their resulting models, improving the fidelity of the synthetic data regarding the original dataset.&amp;lt;/p&amp;gt;}, 
+number={1}, 
+journal={Journal of Internet Services and Applications}, 
+author={Iran Freitas Ribeiro and Giovanni Comarela and Antonio A. A. Rocha and Vinícius F. S. Mota}, 
+year={2024}, 
+month={Aug.}, 
+pages={258–272} }
+
+@article{SARMENTO2024101050,
+title = {Forecasting energy power consumption using federated learning in edge computing devices},
+journal = {Internet of Things},
+volume = {25},
+pages = {101050},
+year = {2024},
+issn = {2542-6605},
+doi = {https://doi.org/10.1016/j.iot.2023.101050},
+url = {https://www.sciencedirect.com/science/article/pii/S2542660523003736},
+author = {Eduardo Montagner de Moraes Sarmento and Iran Freitas Ribeiro and Pablo Rafael Neves Marciano and Yrui Giovan Neris and Helder Roberto de Oliveira Rocha and Vinícius Fernandes Soares Mota and Rodolfo da Silva Villaça},
+keywords = {Federated learning, Forecasting energy consumption, Privacy requirements, Edge computing, GANs, Dataset augmentation},
+abstract = {Several studies in the literature propose using machine learning algorithms to forecast consumers’ energy consumption. However, such data is sensitive and has privacy constraints. On the other hand, federated learning is a technique in which the training of machine learning algorithms is performed locally, where the data is generated. In this context, this article presents a hybrid neural network architecture, named CNN-LSTM FED, trained using the public Smart* and The Building Data Genome Project 2 datasets. Additionally, an augmented Smart* dataset was generated using Generative Adversarial Networks (GANs). The performance of CNN-LSTM FED was evaluated by comparing it against the MultiLayer Perceptron (MLP), which serves as a baseline, and against a non-federated version of the CNN-LSTM FED, named CNN-LSTM. Our approach was able to generalize the model even when less than 1% of buildings participated in the modeling process, forecasting with good results the energy consumption of other buildings. Furthermore, the deployment of this architecture in an edge computing device, with limited computational resources for training, is evaluated.}
+}
+
+
+@inproceedings{ribeiro2024geracao,
+    title={Geração de Dados de Ataque em Internet das Coisas utilizando Redes Generativas Adversarias},
+    author={Iran F Ribeiro and Guilherme Brotto and Giovanni Comarela and Vinícius F.S. Mota},
+    booktitle={Anais do VI Workshop de Computação Urbana},
+    pages={xxx--xxx},
+    year={2024},
+    organization={SBC}
+}
+
 @inproceedings{sbrc,
     author = {Tiago Araujo and Iran Ribeiro and Vinícius Mota},
     title = {Covid19-Fast-Check: Uma abordagem Internet das Coisas Aplicada à Saúde para pré-triagem hospitalar do coronavírus},
@@ -47,7 +83,8 @@ const bibs = `
     pages={182--195},
     year={2022},
     organization={SBC}
-  }
+}
+
 
 @inproceedings{ribeiro2021abordagem,
     title={Uma abordagem para geração de séries temporais de mobilidade urbana baseada em aprendizado profundo},
