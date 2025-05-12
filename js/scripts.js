@@ -6,7 +6,7 @@
 //
 // Scripts
 //
-
+includeHTML();
 
 const bibs = `
 @article{Ribeiro_Comarela_Rocha_Mota_2024, 
@@ -403,10 +403,40 @@ function BibtexParser() {
     };
 };
 
-window.addEventListener('DOMContentLoaded', event => {
+
+
+function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /* Remove the attribute, and call this function once more: */
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+                }
+            }
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+            }
+        }
+        }
+
+$(document).ready(function(){
 
     // Activate Bootstrap scrollspy on the main nav element
-    const sideNav = document.body.querySelector('#sideNav');
+    const sideNav = $('#sideNav');
     if (sideNav) {
         new bootstrap.ScrollSpy(document.body, {
             target: '#sideNav',
@@ -415,31 +445,74 @@ window.addEventListener('DOMContentLoaded', event => {
     };
 
     // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
+    const navbarToggler = $('.navbar-toggler');
+
+    // Seleciona os links de navegação responsivos
+    const responsiveNavItems = $('#navbarResponsive .nav-link');
+
+    
+    // Adiciona um listener de clique a cada um dos links selecionados
+    responsiveNavItems.on('click', function() {
+        // Verifica se o toggler está visível (indicando que o menu responsivo está ativo)
+        // O pseudo-seletor :visible é uma forma comum do jQuery de verificar se um elemento está sendo exibido
+        if (navbarToggler.is(':visible')) {
+            // Simula um clique no toggler para fechar a navbar
+            navbarToggler.click();
+        }
+        // Se o toggler não estiver visível, significa que estamos na versão desktop
+        // e não precisamos fazer nada, o link navegará normalmente.
     });
+
+    // URL do seu endpoint que retorna JSON
+    const urlDoJson = './data.json'; // Caminho relativo para o arquivo
+
+    // Inicia a requisição fetch
+    fetch(urlDoJson)
+      .then(response => {
+        // A primeira Promise resolve com o objeto Response
+        // Verificamos se a resposta foi bem-sucedida (status 2xx)
+        if (!response.ok) {
+          // Se não foi sucesso, lançamos um erro para o .catch()
+          throw new Error('Erro na rede ou resposta do servidor não OK: ' + response.statusText);
+        }
+        // Se foi sucesso, chamamos .json() que retorna outra Promise com os dados parseados
+        return response.json();
+      })
+      .then(data => {
+        // A segunda Promise resolve com os dados JSON parseados (objeto/array JS)
+        
+        console.log("Dados recebidos:", data);
+
+        fill_about(data);
+
+        // let htmlOutput = '<ul>';
+        // // 'data' é um array de objetos JavaScript
+        // data.forEach(produto => {
+        //   htmlOutput += `<li>ID: ${produto.id}, Nome: ${produto.nome}, Preço: R$ ${produto.preco.toFixed(2)}</li>`;
+        // });
+        // htmlOutput += '</ul>';
+
+        // resultadoDiv.innerHTML = htmlOutput;
+      })
+      .catch(error => {
+        // O .catch() lida com erros de rede OU erros lançados nos .then() anteriores
+        console.error("Ocorreu um erro ao carregar o JSON:", error);
+        resultadoDiv.innerHTML = `<p style="color: red;">Erro ao carregar os dados: ${error.message}</p>`;
+      });
 
     InsertPublications();
 
 
     // Fill publication list
     function InsertPublications(){
-        var ul = document.getElementById("list_publications")
+        var ul = $("#list_publications");
         entries =  toJSON(bibs)
         entries.forEach(e => {
             var author = e.entryTags.author;
             var list_entries = [e.entryTags.title, e.entryTags.booktitle, e.entryTags.publisher, e.entryTags.year
             ];
 
-            var li = document.createElement("li")
+            var li = document.createElement("li");
             var pub = get_autores(author);
             list_entries.forEach(key_entrie => {
                 if (!(key_entrie === undefined)){
@@ -484,4 +557,40 @@ window.addEventListener('DOMContentLoaded', event => {
         }
         return author_names;
     }
+
+    function fill_about(data){
+
+        map_icons = {
+            'linkedin':'fab fa-linkedin-in',
+            'researchgate':'fa-brands fa-researchgate',
+            'orcid':'fa-brands fa-orcid',
+            'github':'fab fa-github',
+            'googlescholar':'fa-solid fa-graduation-cap',
+        }
+
+        first = data.name.first;
+        last  = data.name.last;
+        complete_name = first + " " +last;
+         
+        $("#name_toggle").text(complete_name);
+        $("#first").text(first);
+        $("#last").text(last);
+
+        $("#address").text(data.contact.address);
+
+        email = data.contact.email;
+        $("#email").text(email);
+        $("#email").prop("href", "mailto:"+email);
+
+        $("#shortbio").text(data.shortbio);
+
+        socials = data.contact.socials;
+        list_socials = $("#socials");
+        for (let key in socials) {
+            novolink = '<a class="social-icon" id="'+ key +'"href="'+socials[key]+'"><i class="'+map_icons[key]+'"></i></a>';            
+            list_socials.append(novolink);
+        }
+    }
+
+    
 });

@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
-                <span class="d-block d-lg-none">Iran Ribeiro</span>
+                <span class="d-block d-lg-none" id="name_toggle"></span>
                 <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.png" alt="..." /></span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -40,160 +40,33 @@
         <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Iran
-                        <span class="text-primary">Ribeiro</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        Av. Fernando Ferrari, 514 - Goiabeiras, Vitória - ES - Brazil, 29075-910 ·
-                        <a href="mailto:ifreitasribeiro13@gmail.com">ifreitasribeiro13@gmail.com</a>
-                    </div>
-                    <p class="lead mb-5">
-                        I am a doctoral student at the Universidade Federal do Espírito Santo (<a href="https://informatica.ufes.br/pt-br/pos-graduacao/PPGI">UFES</a>) 
-                        and researcher at the Multimedia and Networking Research Lab (<a href="https://lprm.inf.ufes.br/">LPRM</a>) since November 2021. 
-                        I hold a Master's degree in Computer Science from the same university, and a Bachelor's degree 
-                        in Computer Science from the Universidade Estadual do Sudoeste da Bahia (<a href="http://www.uesb.br/">UESB</a>).    
-                    </p>
-                    <div class="social-icons">
-                        <a class="social-icon" id="linkedin" href="https://www.linkedin.com/in/iran-ribeiro-3a5abb91/"><i class="fab fa-linkedin-in" alt="Linkedin"></i></a>
-                        <a class="social-icon" id="github" href="https://github.com/ifribeiro"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" id="googlescholar" href="https://scholar.google.com/citations?user=6-8aD00AAAAJ&hl=pt-BR"><i class="fa-solid fa-graduation-cap"></i></a>
-                        <a class="social-icon" id="researchgate" href="https://www.researchgate.net/profile/Iran-Ribeiro"><i class="fa-brands fa-researchgate"></i></a>
-                        <a class="social-icon" id="orcid" href="https://orcid.org/0000-0002-0298-9006"><i class="fa-brands fa-orcid"></i> </a>
-                    </div>
-                </div>
-            </section>
+            <div w3-include-html="sections/about.html"></div> 
             <hr class="m-0" />
             <!-- Experience-->
-            <section class="resume-section" id="experience">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Experience</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Information Technology Analyst</h3>
-                            <div class="subheading mb-3">HUCAM/EBSERH - Espírito Santo, Vitória - Brazil</div>
-                            <p></p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">October 2024 - </span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Web Developer Intern</h3>
-                            <div class="subheading mb-3">Vitoria da Conquista City Hall - Bahia, Brazil</div>
-                            <p>Updated and inserted new front-end components in one of the city hall system.</p>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">June 2018 - October 2018</span></div>
-                    </div>
-                </div>
-            </section>
+            <div w3-include-html="sections/experience.html"></div> 
             <hr class="m-0" />
             <!-- Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Education</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Universidade Federal do Espírito Santo</h3>
-                            <div class="subheading mb-3">Doctoral Student of Computer Science</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">November 2021 - Current</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Universidade Federal do Espírito Santo</h3>
-                            <div class="subheading mb-3">Master of Computer Science</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">March 2019 - August 2021</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">Universidade Estadual do Sudoeste da Bahia</h3>
-                            <div class="subheading mb-3">Bachelor of Computer Science</div>
-                            <!-- <div class="subheading mb-3">Technology Magnet Program</div>
-                            <p>GPA: 3.56</p> -->
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">April 2012 - July 2018</span></div>
-                    </div>
-                </div>
-            </section>
+            <div w3-include-html="sections/education.html"></div> 
             <hr class="m-0" />
             <!-- Skills-->
-            <section class="resume-section" id="skills">
-                <div class="resume-section-content">
-                    <h2 class="mb-1">Skills</h2>
-                    <h4 class="mb-5">Programming Languages and Tools</h4>
-                    <div class="subheading mb-3">Data Science and Machine Learning</div>
-                    <ul class="list-inline dev-icons mb-5">
-                        <li class="list-inline-item"><i class="fa-brands fa-python"></i></li> 
-                        <li class="list-inline-item img-logos"><img class="img-fluid" src="assets/img/keras_logo.png"> </li>
-                        <li class="list-inline-item img-logos"><img class="img-fluid" src="assets/img/matplotlib_logo.svg"> </li>
-                        <li class="list-inline-item img-logos"><img class="img-fluid" id="pandas" src="assets/img/pandas_white.svg"> </li>
-                        <li class="list-inline-item img-logos" id="numpy"><img class="img-fluid" src="assets/img/numpy_logo.svg"> </li>
-                    </ul>
-                    <div class="subheading mb-3">Web Development</div>
-                    <ul class="list-inline dev-icons">
-                        <li class="list-inline-item"><i class="fab fa-html5"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-css3-alt"></i></li>
-                        <li class="list-inline-item"><i class="fab fa-js-square"></i></li>
-                        <li class="list-inline-item"><i class="fa-brands fa-laravel"></i></li>
-                    </ul>
-            </section>
+            <div w3-include-html="sections/skills.html"></div>
             <hr class="m-0" />
             <section class="resume-section" id="publications">
                 <div class="resume-section-content justify-content">
                     <h2 class="mb-5">Publications</h2>
                     <ol id="list_publications">
-                        <!-- <li class="mb-2">
-                            Ribeiro, Iran F., et al. "Chove lá fora, alerta aqui dentro: Uma análise de Alertas de Problemas de Trânsito em Sensoriamentos Participativos." <em>Anais do VI Workshop de Computação Urbana</em>. SBC, 2022.
-                        </li>
-                        <li class="mb-2"> 
-                            Ribeiro, Iran F., et al. "Geração de Séries Temporais Utilizando Redes Generativas Adversárias: da Teoria à Prática." <em>Brasileira de Computação (2022)</em>.
-                        </li>
-                        <li class="mb-2">Ribeiro, Iran, et al. "Mobility and Community Detection Based on Topics of Interest." <em>IEEE 18th Annual Consumer Communications & Networking Conference (CCNC)</em>. IEEE, 2021.
-                        </li>
-                        <li class="mb-2">
-                            Ribeiro, Iran F., et al. "Uma Abordagem para Geração de Séries Temporais de Mobilidade Urbana Baseada em Aprendizado Profundo." <em>do V Workshop de Computação Urbana</em>. SBC, 2021.
-                        </li>
-                        <li class="mb-2">
-                            Ribeiro, Iran, et al. "Caracterização de mobilidade e detecção de comunidades baseadas em tópicos de interesse." <em>Anais do XXXVIII Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos</em>. SBC, 2020.
-                        </li>        -->
+                        
                     </ol>               
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Talks-->
-            <section class="resume-section" id="talks">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Talks</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                        <div class="flex-grow-1">
-                            <h4 class="mb-0">Geração de dados de Mobilidade Urbana Utilizando Aprendizado Profundo</h4>
-                            <div class="subheading mb-3">2nd Workshop on Data Science and Statistical Learning</div>
-                        </div>
-                        <div class="flex-shrink-0"><span class="text-primary">June 18th, 2021</span></div>
-                    </div>
-                </div>
-            </section>
+            <div w3-include-html="sections/talks.html"></div>
             <hr class="m-0" />
             
             <!-- Awards-->
-            <section class="resume-section" id="awards">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">Awards</h2>
-                    <ul class="fa-ul mb-0">
-                        <li>
-                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
-                            Best paper honor mention - V Workshop de Computação Urbana - 2021
-                        </li>
-                        <li>
-                            <span class="fa-li"><i class="fa-solid fa-medal"></i></span>
-                            Silver Medal at X Brazilian Astronomy and Astronautics Olympiad - 2007
-                        </li>
-                    </ul>
-                </div>
-            </section>
+             <div w3-include-html="sections/awards.html"></div>
+            
         </div>
         <footer>
             <!-- Copyright -->
@@ -204,7 +77,8 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <!-- Core theme JS-->
-        <script  src="js/scripts.js"></script>
+        <script  src="js/scripts.js"></script>        
     </body>
 </html>
