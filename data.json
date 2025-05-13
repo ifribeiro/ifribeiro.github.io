@@ -14,5 +14,25 @@
             "orcid":"https://orcid.org/0000-0002-0298-9006"
         }
     },
-    "shortbio":"I am a doctoral student at the Universidade Federal do Espírito Santo (UFES) and researcher at the Multimedia and Networking Research Lab (LPRM) since November 2021. I hold a Master's degree in Computer Science from the same university, and a Bachelor's degree in Computer Science from the Universidade Estadual do Sudoeste da Bahia UESB"
+    "shortbio":"I am a doctoral student at the Universidade Federal do Espírito Santo (UFES) and researcher at the Multimedia and Networking Research Lab (LPRM) since November 2021. I hold a Master's degree in Computer Science from the same university, and a Bachelor's degree in Computer Science from the Universidade Estadual do Sudoeste da Bahia UESB",
+    "experience":{
+        "I.T. Analyst": {
+            "company":{
+                "name":"HUCAM/EBSERH",
+                "address":"Espírito Santo, Vitória - Brazil",
+                "start":"Oct. 2024",
+                "end":""
+            },
+            "activities": []
+        },
+        "Web Developer Intern":{
+            "company":{
+                "name":"HUCAM/EBSERH",
+                "address":"Vitória da Conquista, Bahia - Brazil",
+                "start":"June 2018",
+                "end":"October 2018"
+            },
+            "activities":["Updated and inserted new front-end components in one of the city hall system."]
+        }
+    }
 }

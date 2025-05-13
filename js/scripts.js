@@ -480,19 +480,9 @@ $(document).ready(function(){
       })
       .then(data => {
         // A segunda Promise resolve com os dados JSON parseados (objeto/array JS)
-        
-        console.log("Dados recebidos:", data);
-
         fill_about(data);
-
-        // let htmlOutput = '<ul>';
-        // // 'data' é um array de objetos JavaScript
-        // data.forEach(produto => {
-        //   htmlOutput += `<li>ID: ${produto.id}, Nome: ${produto.nome}, Preço: R$ ${produto.preco.toFixed(2)}</li>`;
-        // });
-        // htmlOutput += '</ul>';
-
-        // resultadoDiv.innerHTML = htmlOutput;
+        fill_experiences(data);
+        
       })
       .catch(error => {
         // O .catch() lida com erros de rede OU erros lançados nos .then() anteriores
@@ -592,5 +582,22 @@ $(document).ready(function(){
         }
     }
 
-    
+    function fill_experiences(data){
+        experience = data.experience;
+        div_experience = $("#experience_list"); 
+        for (let key in experience){
+            company_name = experience[key].company.name;
+            company_address = experience[key].company.address;
+            activities = experience[key].activities;
+            start = experience[key].start;
+            end   = experience[key].end;
+
+            var div = '<div class="d-flex flex-column flex-md-row justify-content-between"><div class="flex-grow-1">';
+            div += '<h3 class="mb-0">'+key+'</h3>';
+            div +='<div class="subheading mb-3">'+company_name + '-'+company_address+'</div>';
+            div +='<p>'+activities+'</p></div>';
+            div +='<div class="flex-shrink-0"><span class="text-primary">'+ start +'-'+ end +'</span></div></div>';
+            div_experience.append(div);
+        }        
+    }
 });
