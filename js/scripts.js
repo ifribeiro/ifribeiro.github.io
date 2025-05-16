@@ -480,8 +480,11 @@ $(document).ready(function(){
       })
       .then(data => {
         // A segunda Promise resolve com os dados JSON parseados (objeto/array JS)
+        
         fill_about(data);
         fill_experiences(data);
+        fill_education(data);
+        InsertPublications();
         
       })
       .catch(error => {
@@ -490,7 +493,7 @@ $(document).ready(function(){
         resultadoDiv.innerHTML = `<p style="color: red;">Erro ao carregar os dados: ${error.message}</p>`;
       });
 
-    InsertPublications();
+    
 
 
     // Fill publication list
@@ -584,20 +587,40 @@ $(document).ready(function(){
 
     function fill_experiences(data){
         experience = data.experience;
-        div_experience = $("#experience_list"); 
+        div_experience = $("#experience_list");
+        div_experience.empty();
         for (let key in experience){
             company_name = experience[key].company.name;
             company_address = experience[key].company.address;
             activities = experience[key].activities;
-            start = experience[key].start;
-            end   = experience[key].end;
-
+            start = experience[key].company.start;
+            end   = experience[key].company.end;
             var div = '<div class="d-flex flex-column flex-md-row justify-content-between"><div class="flex-grow-1">';
             div += '<h3 class="mb-0">'+key+'</h3>';
-            div +='<div class="subheading mb-3">'+company_name + '-'+company_address+'</div>';
+            div +='<div class="subheading mb-3">'+company_name + ' - '+company_address+'</div>';
             div +='<p>'+activities+'</p></div>';
-            div +='<div class="flex-shrink-0"><span class="text-primary">'+ start +'-'+ end +'</span></div></div>';
+            div +='<div class="flex-shrink-0"><span class="text-primary">'+ start +' - '+ end +'</span></div></div>';
+            
             div_experience.append(div);
         }        
     }
+
+    function fill_education(data){
+        education = data.education;
+        div_education = $("#education_list");
+        // div_education.empty();
+        for (let key in education){
+            university = education[key]['university'];
+            title = education[key]['title'];
+            start = education[key]['start'];
+            end   = education[key]['end'];            
+
+            var div = '<div class="d-flex flex-column flex-md-row justify-content-between mb-5">';
+            div += '<div class="flex-grow-1">';
+            div += '<h3 class="mb-0">'+ university +'</h3>';
+            div += '<div class="subheading mb-3">'+ title +'</div></div>';
+            div += '<div class="flex-shrink-0"><span class="text-primary">'+ start +' - ' + end +'</span></div></div>';
+            div_education.append(div);
+        }
+    }   
 });

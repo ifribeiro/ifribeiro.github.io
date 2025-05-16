@@ -34,5 +34,26 @@
             },
             "activities":["Updated and inserted new front-end components in one of the city hall system."]
         }
+    },
+    "education":{
+        "doctoral":{
+            "university":"Universidade Federal do Espírito Santo",
+            "title":"Doctoral Student of Computer Science",
+            "start":"November, 2021",
+            "end":""
+        },
+        "master":{
+            "university":"Universidade Federal do Espírito Santo",
+            "title":"Master of Computer Science",
+            "start":"March, 2019",
+            "end":"August, 2021"
+        },
+        "graduation":{
+            "university":"Universidade Estadual do Sudoeste da Bahia",
+            "title":"Bachelor of Computer Science",
+            "start":"April, 2012",
+            "end":"July, 2018"
+        }
     }
+
 }
